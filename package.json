@@ -8,7 +8,7 @@
     "url": "git+https://github.com/codeer-kr/youtube-clone-2021.git"
   },
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8"
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "nodemon": "^2.0.15"
   }
 }
