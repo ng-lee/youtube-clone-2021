@@ -7,10 +7,16 @@
     "type": "git",
     "url": "git+https://github.com/codeer-kr/youtube-clone-2021.git"
   },
+  "scripts": {
+    "win": "node index.js"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/codeer-kr/youtube-clone-2021/issues"
   },
-  "homepage": "https://github.com/codeer-kr/youtube-clone-2021#readme"
+  "homepage": "https://github.com/codeer-kr/youtube-clone-2021#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
