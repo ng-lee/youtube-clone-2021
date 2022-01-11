@@ -1,0 +1,16 @@
+{
+  "name": "youtube-clone-2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeer-kr/youtube-clone-2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeer-kr/youtube-clone-2021/issues"
+  },
+  "homepage": "https://github.com/codeer-kr/youtube-clone-2021#readme"
+}
