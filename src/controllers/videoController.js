@@ -30,9 +30,9 @@ export const trending = (req, res) => {
 export const search = (req, res) => res.send("Search");
 export const upload = (req, res) => res.send("Upload video");
 export const edit = (req, res) => res.render("edit", { pageTitle: "Edit" });
-export const see = (req, res) => {
+export const watch = (req, res) => {
   const { id } = req.params;
   const video = videos[id - 1];
-  res.render("watch", { pageTitle: `Watching ${video.title}` });
+  res.render("watch", { pageTitle: `Watching ${video.title}`, video });
 };
 export const remove = (req, res) => res.send("Remove video");
