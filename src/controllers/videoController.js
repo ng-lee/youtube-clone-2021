@@ -24,6 +24,7 @@ let videos = [
     id: 3,
   },
 ];
+
 export const trending = (req, res) => {
   return res.render("home", { pageTitle: "Home", videos });
 };

@@ -1,11 +1,5 @@
 import express from "express";
-import {
-  upload,
-  watch,
-  getEdit,
-  postEdit,
-  remove,
-} from "../controllers/videoController";
+import { watch, getEdit, postEdit } from "../controllers/videoController";
 
 const videoRouter = express.Router();
 
