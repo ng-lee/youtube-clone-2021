@@ -6,9 +6,10 @@ export const home = async (req, res) => {
   const videos = await Video.find({});
   return res.render("home", { pageTitle: "Home", videos });
 };
-export const watch = (req, res) => {
+export const watch = async (req, res) => {
   const { id } = req.params;
-  res.render("watch", { pageTitle: `Watching:` });
+  const video = await Video.findById(id);
+  res.render("watch", { pageTitle: video.title, video });
 };
 export const getEdit = (req, res) => {
   const { id } = req.params;
@@ -28,7 +29,7 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      hashtags: hashtags.split(", ").map((word) => `#${word}`),
+      hashtags: hashtags.split(",").map((word) => `#${word}`),
     });
   } catch (error) {
     return res.render("upload", {
