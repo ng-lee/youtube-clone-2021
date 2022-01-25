@@ -12,5 +12,7 @@ html(lang="ko")
         a(href="/join") Join
       h1= pageTitle
     main
+      if errorMessage
+        span= errorMessage
       block content
   include partials/footer.pug
