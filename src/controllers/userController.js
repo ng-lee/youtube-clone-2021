@@ -134,9 +134,10 @@ export const getEdit = async (req, res) =>
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { _id },
+      user: { _id, avatarUrl },
     },
     body: { name, email, username, location },
+    file,
   } = req;
   const exists = await User.exists({
     $and: [
@@ -144,7 +145,6 @@ export const postEdit = async (req, res) => {
       { $or: [{ name }, { username }, { email }] },
     ],
   });
-  console.log(exists);
   if (exists) {
     return res.status(400).render("edit-profile", {
       pageTitle: "Edit Profile",
@@ -154,6 +154,7 @@ export const postEdit = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
       _id,
       {
+        avatarUrl: file ? file.path : avatarUrl,
         name,
         email,
         username,
