@@ -5,7 +5,7 @@ import {
   finishGithubLogin,
   getEdit,
   postEdit,
-  see,
+  profile,
   getChangePassword,
   postChangePassword,
 } from "../controllers/userController";
@@ -23,6 +23,7 @@ userRouter
   .all(loginOnlyMiddleware)
   .get(getEdit)
   .post(avatarUploadMiddleware.single("avatar"), postEdit);
+userRouter.get("/:id", profile);
 userRouter
   .route("/change-password")
   .all(loginOnlyMiddleware)
@@ -30,6 +31,5 @@ userRouter
   .post(postChangePassword);
 userRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
 userRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
-userRouter.get("/:id", see);
 
 export default userRouter;

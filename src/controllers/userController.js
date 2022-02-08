@@ -201,4 +201,11 @@ export const postChangePassword = async (req, res) => {
   return res.redirect("/users/edit");
 };
 
-export const see = (req, res) => res.send("See user");
+export const profile = async (req, res) => {
+  const { id } = req.params;
+  const user = User.findById(id);
+  if (!user) {
+    return res.status(404).render("404");
+  }
+  return res.render("profile", { pageTitle: "My Profile", user });
+};
