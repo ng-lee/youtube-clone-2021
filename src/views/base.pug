@@ -2,6 +2,7 @@ doctype html
 html(lang="ko")
   head
     link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+    link(rel="stylesheet", href="/static/css/styles.css")
     title #{ pageTitle } | #{ siteName }
   body
     header
@@ -22,4 +23,4 @@ html(lang="ko")
         span= errorMessage
       block content
   include partials/footer.pug
-  script(src="/assets/js/main.js") 
+  script(src="/static/js/main.js") 
