@@ -8,22 +8,12 @@ html(lang="ko")
     link(rel="stylesheet", href="/static/css/styles.css")
     title #{ pageTitle } | #{ siteName }
   body
-    header
-      nav
-        a(href="/") Home
-        a(href="/search") Search
-        if loggedIn
-          a(href="/videos/upload") Upload Video
-          a(href=`/users/${loggedInUser._id}`) My Profile
-          a(href="/users/edit") Edit Profile
-          a(href="/users/logout") Logout
-        else
-          a(href="/join") Join
-          a(href="/login") Login
-      h1= pageTitle
+    include partials/header.pug
     main
+      h1.title= pageTitle
       if errorMessage
-        span= errorMessage
-      block content
-  include partials/footer.pug
+        span.err-msg= errorMessage
+      .content
+        block content
+    include partials/footer.pug
   script(src="/static/js/main.js") 

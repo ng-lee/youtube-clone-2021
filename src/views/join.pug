@@ -2,19 +2,42 @@ extends base
 
 block content
   form(method="POST")
-    input(name="name", type="text", required, placeholder="Name")
-    input(name="email", type="email", required, placeholder="Email")
-    input(name="username", type="text", required, placeholder="Username")
-    input(name="password1", type="password", required, placeholder="Password")
-    input(
-      name="password2",
-      type="password",
-      required,
-      placeholder="Confirm Password"
-    )
-    input(name="location", type="text", placeholder="Location")
-    input(type="submit", value="Join")
-  hr
-  div 
+    .inputs
+      div
+        label(for="name") Name
+        input#name(name="name", type="text", required, placeholder="Name")
+      div
+        label(for="email") Email
+        input#email(name="email", type="email", required, placeholder="Email")
+      div
+        label(for="username") Username
+        input#username(
+          name="username",
+          type="text",
+          required,
+          placeholder="Username"
+        )
+      div
+        label(for="pw") Password
+        input#pw(
+          name="password1",
+          type="password",
+          required,
+          placeholder="Password"
+        )
+      div
+        label(for="pw-confirm") Confirm Password
+        input#pw-confirm(
+          name="password2",
+          type="password",
+          required,
+          placeholder="Confirm Password"
+        )
+      div
+        label(for="loc") Location
+        input#loc(name="location", type="text", placeholder="Location")
+    input.btn(type="submit", value="Join")
+
+  .addtional-link
     span Already have an account?
-    a(href="/login") Log in now &rarr;
+    a.link-btn(href="/login") Log in now &rarr;

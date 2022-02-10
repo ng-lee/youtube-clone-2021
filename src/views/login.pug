@@ -2,11 +2,26 @@ extends base
 
 block content
   form(method="POST")
-    input(name="username", type="text", required, placeholder="Username")
-    input(name="password", type="password", required, placeholder="Password")
-    input(type="submit", value="Login")
-    a(href="/users/github/start") Continue with GitHub &rarr;
-  hr
-  div 
+    .inputs
+      div
+        label(for="username") Username
+        input#username(
+          name="username",
+          type="text",
+          required,
+          placeholder="Username"
+        )
+      div
+        label(for="pw") Password
+        input#pw(
+          name="password",
+          type="password",
+          required,
+          placeholder="Password"
+        )
+    input.btn(type="submit", value="Login")
+    a.link-btn(href="/users/github/start") Continue with GitHub &rarr;
+
+  .addtional-link
     span Don't have an account?
-    a(href="/join") Create now &rarr;
+    a.link-btn(href="/join") Create now &rarr;

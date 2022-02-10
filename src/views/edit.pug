@@ -2,25 +2,32 @@ extends base.pug
 
 block content
   form(method="POST") 
-    input(
-      placeholder="Video Title",
-      required,
-      type="text",
-      name="title",
-      value=video.title
-    )
-    input(
-      placeholder="Description",
-      required,
-      type="text",
-      name="description",
-      value=video.description
-    )
-    input(
-      placeholder="Hastags, separated by commna.",
-      required,
-      type="text",
-      name="hashtags",
-      value=video.hashtags.join()
-    )
-    input(type="submit", value="Save")
+    .inputs 
+      div
+        label(for="title") Video Title
+        input#title(
+          placeholder="Video Title",
+          required,
+          type="text",
+          name="title",
+          value=video.title
+        )
+      div
+        label(for="description") Description
+        input#description(
+          placeholder="Description",
+          required,
+          type="text",
+          name="description",
+          value=video.description
+        )
+      div
+        label(for="hastags") Hastags
+        input#hastags(
+          placeholder="Hastags, separated by commna.",
+          required,
+          type="text",
+          name="hashtags",
+          value=video.hashtags.join()
+        )
+    input.btn(type="submit", value="Save")
