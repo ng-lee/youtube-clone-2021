@@ -1,0 +1,23 @@
+.video {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background-color: $grey;
+  border: 1px solid white;
+  border-radius: 10px;
+  div > *:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  h4 {
+    font-size: 30px;
+  }
+  ul {
+    display: flex;
+    li {
+      margin-right: 5px;
+    }
+  }
+  small {
+    opacity: 0.4;
+  }
+}
