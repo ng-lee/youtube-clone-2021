@@ -2,6 +2,7 @@ extends base
 include mixins/video
 
 block content
+  span= loggedInUser.name
   if user.videos
     span= user.videos
     each video in user.videos
