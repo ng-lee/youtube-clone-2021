@@ -1,0 +1,18 @@
+.infos {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  .info {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .info__label {
+    display: inline-block;
+    width: 100px;
+  }
+  .info__input {
+    width: 300px;
+    height: 30px;
+  }
+}

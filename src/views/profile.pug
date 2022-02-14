@@ -2,12 +2,29 @@ extends base
 include mixins/video
 
 block content
-  span= loggedInUser.name
-  if user.videos
-    span= user.videos
-    each video in user.videos
-      +video(video)
-  else
-    li Sorry nothing found
+  .board
+    .infos
+      .info
+      if loggedInUser.avatarUrl
+        img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
+      .info
+        span.info__label Name:
+        span= loggedInUser.name
+      .info
+        span.info__label Email:
+        span= loggedInUser.email
+      .info
+        span.info__label Username:
+        span= loggedInUser.username
+      .info 
+        span.info__label Location:
+        span= loggedInUser.location
+      a.link-btn(href="/users/edit") Edit Profile &rarr;
 
-  a.link-btn(href="/users/edit") Edit Profile &rarr;
+  div
+    if user.videos
+      span= user.videos
+      each video in user.videos
+        +video(video)
+    else
+      span Sorry nothing found

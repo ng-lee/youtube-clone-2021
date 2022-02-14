@@ -1,19 +1,19 @@
 extends base
 
 block content
-  form(method="POST")
-    .inputs
-      div
-        label(for="username") Username
-        input#username(
+  form.board(method="POST")
+    .infos
+      .info
+        label.info__label(for="username") Username
+        input#username.info__input(
           name="username",
           type="text",
           required,
           placeholder="Username"
         )
-      div
-        label(for="pw") Password
-        input#pw(
+      .info
+        label.info__label(for="pw") Password
+        input#pw.info__input(
           name="password",
           type="password",
           required,

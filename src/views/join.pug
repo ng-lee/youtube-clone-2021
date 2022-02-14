@@ -1,41 +1,55 @@
 extends base
 
 block content
-  form(method="POST")
-    .inputs
-      div
-        label(for="name") Name
-        input#name(name="name", type="text", required, placeholder="Name")
-      div
-        label(for="email") Email
-        input#email(name="email", type="email", required, placeholder="Email")
-      div
-        label(for="username") Username
-        input#username(
+  form.board(method="POST")
+    .infos
+      .info
+        label.info__label(for="name") Name
+        input#name.info__input(
+          name="name",
+          type="text",
+          required,
+          placeholder="Name"
+        )
+      .info
+        label.info__label(for="email") Email
+        input#email.info__input(
+          name="email",
+          type="email",
+          required,
+          placeholder="Email"
+        )
+      .info
+        label.info__label(for="username") Username
+        input#username.info__input(
           name="username",
           type="text",
           required,
           placeholder="Username"
         )
-      div
-        label(for="pw") Password
-        input#pw(
+      .info
+        label.info__label(for="pw") Password
+        input#pw.info__input(
           name="password1",
           type="password",
           required,
           placeholder="Password"
         )
-      div
-        label(for="pw-confirm") Confirm Password
-        input#pw-confirm(
+      .info
+        label.info__label(for="pw-confirm") Confirm Password
+        input#pw-confirm.info__input(
           name="password2",
           type="password",
           required,
           placeholder="Confirm Password"
         )
-      div
-        label(for="loc") Location
-        input#loc(name="location", type="text", placeholder="Location")
+      .info
+        label.info__label(for="loc") Location
+        input#loc.info__input(
+          name="location",
+          type="text",
+          placeholder="Location"
+        )
     input.btn(type="submit", value="Join")
 
   .addtional-link

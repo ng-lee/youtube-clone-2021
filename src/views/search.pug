@@ -2,9 +2,13 @@ extends base
 include mixins/video
 
 block content
-  form(method="GET")
-    .inputs 
-      input(placeholder="Search by title", type="text", name="keyword")
+  form.board(method="GET")
+    .infos 
+      input.info__input(
+        placeholder="Search by title",
+        type="text",
+        name="keyword"
+      )
     input.btn(value="Search", type="submit") 
 
     div 

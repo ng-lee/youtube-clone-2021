@@ -1,29 +1,29 @@
 extends base.pug
 
 block content
-  form(method="POST") 
-    .inputs 
-      div
-        label(for="title") Video Title
-        input#title(
+  form.board(method="POST") 
+    .infos
+      .info
+        label.info__label(for="title") Video Title
+        input#title.info__input(
           placeholder="Video Title",
           required,
           type="text",
           name="title",
           value=video.title
         )
-      div
-        label(for="description") Description
-        input#description(
+      .info
+        label.info__label(for="description") Description
+        input#description.info__input(
           placeholder="Description",
           required,
           type="text",
           name="description",
           value=video.description
         )
-      div
-        label(for="hastags") Hastags
-        input#hastags(
+      .info
+        label.info__label(for="hastags") Hastags
+        input#hastags.info__input(
           placeholder="Hastags, separated by commna.",
           required,
           type="text",

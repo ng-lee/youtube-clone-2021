@@ -1,43 +1,43 @@
 extends base
 
 block content
-  form(method="POST", enctype="multipart/form-data")
+  form.board(method="POST", enctype="multipart/form-data")
     if loggedInUser.avatar
       img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
-    .inputs 
-      div
-        label(for="avatar") Avatar
-        input#avatar(type="file", name="avatar", accept="image/*")
-      div
-        label(for="name") Name
-        input#name(
+    .infos 
+      .info
+        label.info__label(for="avatar") Avatar
+        input#avatar.info__input(type="file", name="avatar", accept="image/*")
+      .info
+        label.info__label(for="name") Name
+        input#name.info__input(
           name="name",
           type="text",
           required,
           placeholder="Name",
           value=loggedInUser.name
         )
-      div
-        label(for="email") Email
-        input#email(
+      .info
+        label.info__label(for="email") Email
+        input#email.info__input(
           name="email",
           type="email",
           required,
           placeholder="Email",
           value=loggedInUser.email
         )
-      div
-        label(for="username") Username
-        input#username(
+      .info
+        label.info__label(for="username") Username
+        input#username.info__input(
           name="username",
           type="text",
           required,
           placeholder="Username",
           value=loggedInUser.username
         )
-      div
-        label(for="location") Location
-        input#location(
+      .info
+        label.info__label(for="location") Location
+        input#location.info__input(
           name="location",
           type="text",
           placeholder="Location",
@@ -45,5 +45,4 @@ block content
         )
     input.btn(type="submit", value="Update Profile")
     if !loggedInUser.socialOnly
-      hr
       a.link-btn(href="change-password") Change Password &rarr;
