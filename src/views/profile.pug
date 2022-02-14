@@ -19,12 +19,12 @@ block content
       .info 
         span.info__label Location:
         span= loggedInUser.location
-      a.link-btn(href="/users/edit") Edit Profile &rarr;
+    a.link-btn(href="/users/edit") Edit Profile &rarr;
 
-  div
+  .videos-board
     if user.videos
-      span= user.videos
-      each video in user.videos
-        +video(video)
+      .videos
+        each video in user.videos
+          +video(video)
     else
       span Sorry nothing found

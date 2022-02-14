@@ -1,0 +1,9 @@
+.videos-board {
+  display: flex;
+  justify-content: center;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

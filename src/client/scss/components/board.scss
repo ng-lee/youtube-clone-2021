@@ -1,5 +1,5 @@
 .board {
-  width: 80%;
+  width: 100%;
   background-color: $grey;
   display: flex;
   flex-direction: column;
@@ -10,4 +10,3 @@
   box-shadow: $shadow;
   min-height: 300px;
 }
-
