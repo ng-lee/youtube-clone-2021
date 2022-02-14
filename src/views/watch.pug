@@ -4,15 +4,16 @@ block content
   .watch-video
     video(src="/" + video.fileUrl, controls, width="1000px")
     .watch-video__infos
-      div
-        span About
+      .watch-video__info
+        .video__about About
         p= video.description
-      div
-        span Uploaded by
+      .watch-video__info
+        .video__about Uploaded by
           a.link-btn(href=`/users/${video.owner._id}`)= video.owner.name
+      .watch-video__info
+        span.info__label Uploaded at
+          span.info__text= video.createdAt
+    if loggedInUser._id && String(video.owner._id) === String(loggedInUser._id)
       div
-        span= video.createdAt
-      if loggedInUser._id && String(video.owner._id) === String(loggedInUser._id)
-        div
-          a.link-btn(href=`${video.id}/edit`) Edit video &rarr;
-          a.link-btn(href=`${video.id}/delete`) Delete video &rarr;
+        a.link-btn(href=`${video.id}/edit`) Edit video &rarr;
+        a.link-btn(href=`${video.id}/delete`) Delete video &rarr;

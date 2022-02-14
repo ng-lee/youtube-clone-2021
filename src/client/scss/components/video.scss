@@ -1,4 +1,4 @@
-.video {
+.videos__video {
   display: flex;
   flex-direction: column;
   padding: 40px;
@@ -19,5 +19,6 @@
   }
   small {
     opacity: 0.4;
+    font-size: 12px;
   }
 }

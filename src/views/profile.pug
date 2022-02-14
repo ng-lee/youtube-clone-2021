@@ -2,23 +2,23 @@ extends base
 include mixins/video
 
 block content
-  .board
+  .board.profile
     .infos
-      .info
       if loggedInUser.avatarUrl
-        img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
+        .info
+          img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
       .info
         span.info__label Name:
-        span= loggedInUser.name
+        span.info__content= loggedInUser.name
       .info
         span.info__label Email:
-        span= loggedInUser.email
+        span.info__content= loggedInUser.email
       .info
         span.info__label Username:
-        span= loggedInUser.username
+        span.info__content= loggedInUser.username
       .info 
         span.info__label Location:
-        span= loggedInUser.location
+        span.info__content= loggedInUser.location
     a.link-btn(href="/users/edit") Edit Profile &rarr;
 
   .videos-board

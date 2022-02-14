@@ -1,9 +1,12 @@
 .videos-board {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .videos {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
