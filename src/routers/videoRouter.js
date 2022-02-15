@@ -1,30 +1,30 @@
 import express from "express";
 import {
   watch,
+  getUpload,
   getEdit,
   postEdit,
-  getUpload,
   postUpload,
   deleteVideo,
 } from "../controllers/videoController";
-import { loginOnlyMiddleware, videoUploadMiddleware } from "../middlewares";
+import { protectorMiddleware, videoUpload } from "../middlewares";
 
 const videoRouter = express.Router();
 
 videoRouter.get("/:id([0-9a-f]{24})", watch);
 videoRouter
   .route("/:id([0-9a-f]{24})/edit")
-  .all(loginOnlyMiddleware)
+  .all(protectorMiddleware)
   .get(getEdit)
   .post(postEdit);
 videoRouter
   .route("/:id([0-9a-f]{24})/delete")
-  .all(loginOnlyMiddleware)
+  .all(protectorMiddleware)
   .get(deleteVideo);
 videoRouter
   .route("/upload")
-  .all(loginOnlyMiddleware)
+  .all(protectorMiddleware)
   .get(getUpload)
-  .post(videoUploadMiddleware.single("video"), postUpload);
+  .post(videoUpload.single("video"), postUpload);
 
 export default videoRouter;

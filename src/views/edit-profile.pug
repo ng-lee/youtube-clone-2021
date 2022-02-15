@@ -1,48 +1,38 @@
 extends base
 
 block content
-  form.board(method="POST", enctype="multipart/form-data")
-    if loggedInUser.avatar
-      img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
-    .infos 
-      .info
-        label.info__label(for="avatar") Avatar
-        input#avatar.info__input(type="file", name="avatar", accept="image/*")
-      .info
-        label.info__label(for="name") Name
-        input#name.info__input(
-          name="name",
-          type="text",
-          required,
-          placeholder="Name",
-          value=loggedInUser.name
-        )
-      .info
-        label.info__label(for="email") Email
-        input#email.info__input(
-          name="email",
-          type="email",
-          required,
-          placeholder="Email",
-          value=loggedInUser.email
-        )
-      .info
-        label.info__label(for="username") Username
-        input#username.info__input(
-          name="username",
-          type="text",
-          required,
-          placeholder="Username",
-          value=loggedInUser.username
-        )
-      .info
-        label.info__label(for="location") Location
-        input#location.info__input(
-          name="location",
-          type="text",
-          placeholder="Location",
-          value=loggedInUser.location
-        )
-    input.btn(type="submit", value="Update Profile")
+  form.edit-profile__form(method="POST", enctype="multipart/form-data")
+    label(for="avatar") Avatar
+    input#avatar(type="file", name="avatar", accept="image/*")
+    input(
+      placeholder="Name",
+      name="name",
+      type="text",
+      required,
+      value=loggedInUser.name
+    )
+    input(
+      placeholder="Email",
+      name="email",
+      type="email",
+      required,
+      value=loggedInUser.email
+    )
+    input(
+      placeholder="Username",
+      name="username",
+      type="text",
+      required,
+      value=loggedInUser.username
+    )
+    input(
+      placeholder="Location",
+      name="location",
+      type="text",
+      required,
+      value=loggedInUser.location
+    )
+    input(type="submit", value="Update Profile")
     if !loggedInUser.socialOnly
-      a.link-btn(href="change-password") Change Password &rarr;
+      .edit-profile__password
+        a(href="change-password") Change Password &rarr;

@@ -1,27 +1,13 @@
 extends base
 
 block content
-  form.board(method="POST")
-    .infos
-      .info
-        label.info__label(for="username") Username
-        input#username.info__input(
-          name="username",
-          type="text",
-          required,
-          placeholder="Username"
-        )
-      .info
-        label.info__label(for="pw") Password
-        input#pw.info__input(
-          name="password",
-          type="password",
-          required,
-          placeholder="Password"
-        )
-    input.btn(type="submit", value="Login")
-    a.link-btn(href="/users/github/start") Continue with GitHub &rarr;
-
-  .addtional-link
+  if errorMessage
+    span= errorMessage
+  form(method="POST")
+    input(placeholder="Username", name="username", type="text", required)
+    input(placeholder="Password", name="password", type="password", required)
+    input(type="submit", value="Login")
+    include partials/social-login
+  .auth-switch
     span Don't have an account?
-    a.link-btn(href="/join") Create now &rarr;
+    a(href="/join") Create one now &rarr;

@@ -1,24 +1,21 @@
-.videos__video {
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-  background-color: $grey;
-  border: 1px solid white;
-  border-radius: 10px;
-  div > *:not(:last-child) {
-    margin-bottom: 5px;
+// video mixin
+.video-mixin {
+  .video-mixin__thumb {
+    height: 140px;
+    border-radius: 7px;
+    width: 100%;
+    background-color: ivory;
   }
-  h4 {
-    font-size: 30px;
-  }
-  ul {
-    display: flex;
-    li {
-      margin-right: 5px;
+  .video-mixin__data {
+    padding: 0px 15px;
+    .video-mixin__title {
+      font-size: 18px;
+      display: block;
+      margin-top: 10px;
     }
-  }
-  small {
-    opacity: 0.4;
-    font-size: 12px;
+    .video-mixin__meta {
+      margin-top: 5px;
+      font-size: 12px;
+    }
   }
 }

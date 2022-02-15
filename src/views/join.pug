@@ -1,57 +1,22 @@
 extends base
 
 block content
-  form.board(method="POST")
-    .infos
-      .info
-        label.info__label(for="name") Name
-        input#name.info__input(
-          name="name",
-          type="text",
-          required,
-          placeholder="Name"
-        )
-      .info
-        label.info__label(for="email") Email
-        input#email.info__input(
-          name="email",
-          type="email",
-          required,
-          placeholder="Email"
-        )
-      .info
-        label.info__label(for="username") Username
-        input#username.info__input(
-          name="username",
-          type="text",
-          required,
-          placeholder="Username"
-        )
-      .info
-        label.info__label(for="pw") Password
-        input#pw.info__input(
-          name="password1",
-          type="password",
-          required,
-          placeholder="Password"
-        )
-      .info
-        label.info__label(for="pw-confirm") Confirm Password
-        input#pw-confirm.info__input(
-          name="password2",
-          type="password",
-          required,
-          placeholder="Confirm Password"
-        )
-      .info
-        label.info__label(for="loc") Location
-        input#loc.info__input(
-          name="location",
-          type="text",
-          placeholder="Location"
-        )
-    input.btn(type="submit", value="Join")
-
-  .addtional-link
+  if errorMessage
+    span= errorMessage
+  form(method="POST")
+    input(placeholder="Name", name="name", type="text", required)
+    input(placeholder="Email", name="email", type="email", required)
+    input(placeholder="Username", name="username", type="text", required)
+    input(placeholder="Password", name="password", type="password", required)
+    input(
+      placeholder="Confirm Password",
+      name="password2",
+      type="password",
+      required
+    )
+    input(placeholder="Location", name="location", type="text", required)
+    input(type="submit", value="Join")
+    include partials/social-login
+  .auth-switch
     span Already have an account?
-    a.link-btn(href="/login") Log in now &rarr;
+    a(href="/login") Log in now &rarr;
