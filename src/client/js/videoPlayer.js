@@ -33,11 +33,7 @@ playBtn.addEventListener("click", handlePlay);
 video.addEventListener("click", handlePlay);
 
 muteBtn.addEventListener("click", () => {
-  if (video.muted) {
-    video.muted = false;
-  } else {
-    video.muted = true;
-  }
+  video.muted = !video.muted;
   muteBtnIcon.classList = video.muted
     ? "fas fa-volume-mute"
     : "fas fa-volume-up";
