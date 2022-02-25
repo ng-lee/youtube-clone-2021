@@ -3,7 +3,7 @@ extends base.pug
 block content
   .recorder 
     video#preview.recorder__video
-    button#startBtn.recorder__btn Start Recording
+    button#actionBtn.recorder__btn Start Recording
   form(method="POST", enctype="multipart/form-data")
     label(for="video") Video File
     input#video(type="file", accept="video/*", required, name="video")
