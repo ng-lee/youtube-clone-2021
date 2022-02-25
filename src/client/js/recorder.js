@@ -6,6 +6,7 @@ const video = document.getElementById("preview");
 let stream;
 let recorder;
 let videoFile;
+let ffmpeg;
 
 const files = {
   input: "recording.webm",
@@ -32,7 +33,7 @@ const handleDownload = async () => {
   actionBtn.innerText = "Transcoding...";
   actionBtn.disabled = true;
 
-  const ffmpeg = createFFmpeg({ log: true });
+  ffmpeg = createFFmpeg({ log: true });
   await ffmpeg.load();
   ffmpeg.FS("writeFile", files.input, await fetchFile(videoFile));
   await ffmpeg.run("-i", files.input, "-r", "60", files.output);
@@ -45,7 +46,7 @@ const handleDownload = async () => {
     "1",
     files.thumbnail
   );
-  
+
   const mp4URL = getObjectURL(files.output, "video/mp4");
   const thumbURL = getObjectURL(files.thumbnail, "image/jpg");
 
@@ -65,17 +66,11 @@ const handleDownload = async () => {
   actionBtn.disabled = false;
 };
 
-const handleStop = () => {
-  actionBtn.innerText = "Download Recording";
-  actionBtn.removeEventListener("click", handleStop);
-  actionBtn.addEventListener("click", handleDownload);
-  recorder.stop();
-};
-
 const handleStart = () => {
-  actionBtn.innerText = "Stop Recording";
+  actionBtn.innerText = "Recording...";
+  actionBtn.disabled = true;
   actionBtn.removeEventListener("click", handleStart);
-  actionBtn.addEventListener("click", handleStop);
+
   recorder = new MediaRecorder(stream);
   recorder.ondataavailable = (event) => {
     videoFile = URL.createObjectURL(event.data);
@@ -83,8 +78,15 @@ const handleStart = () => {
     video.src = videoFile;
     video.loop = true;
     video.play();
+
+    actionBtn.innerText = "Download";
+    actionBtn.disabled = false;
+    actionBtn.addEventListener("click", handleDownload);
   };
   recorder.start();
+  setTimeout(() => {
+    recorder.stop();
+  }, 5000);
 };
 
 const init = async () => {
