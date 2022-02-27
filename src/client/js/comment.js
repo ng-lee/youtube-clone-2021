@@ -15,4 +15,5 @@ form.addEventListener("submit", (event) => {
     },
     body: JSON.stringify({ text }),
   });
+  textarea.value = "";
 });
