@@ -69,7 +69,7 @@ export const postUpload = async (req, res) => {
       title,
       description,
       fileUrl: video[0].path,
-      thumbnailUrl: thumbnail[0].path.replace(/[\\]/g, "/"),
+      thumbnailUrl: thumbnail ? thumbnail[0].path.replace(/[\\]/g, "/") : null,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
