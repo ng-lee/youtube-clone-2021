@@ -4,9 +4,9 @@ const textarea = form.querySelector("textarea");
 const btn = form.querySelector("button");
 
 const addComment = (text) => {
-  const videoComments = document.querySelector(".video__comments ul");
+  const videoComments = document.querySelector(".comment-section__col ul");
   const newComment = document.createElement("li");
-  newComment.className = "video__comment";
+  newComment.className = "comment-list__comment";
   const span = document.createElement("span");
   span.innerText = text;
   newComment.appendChild(span);
